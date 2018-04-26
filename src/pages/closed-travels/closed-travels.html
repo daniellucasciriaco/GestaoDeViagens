@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Viagens Fechadas</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let viagem of viagens" (click)="goToDetail(viagem.$key, viagem.Status, viagem.Origem, viagem.Destino, viagem.DataHora, viagem)">
+      <h2>{{ viagem.Origem }} x {{ viagem.Destino }}</h2>
+      <h3>{{ viagem.DataHora }}</h3>
+    </ion-item>
+  </ion-list>
+</ion-content>

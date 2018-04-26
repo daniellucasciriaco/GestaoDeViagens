@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "620636264849",
+    "firebase_url": "https://magellatur-15f4d.firebaseio.com",
+    "project_id": "magellatur-15f4d",
+    "storage_bucket": "magellatur-15f4d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:620636264849:android:932636f4de3a8398",
+        "android_client_info": {
+          "package_name": "br.com.danieldeveloper.magellatur"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "620636264849-9qejhotkl2eruevpq4s9t1oi9ppk948p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzN1_ffabx5Q97FLpMbCUSP7UuQpbrZt8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

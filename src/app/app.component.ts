@@ -2,9 +2,12 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { FCM } from '@ionic-native/fcm';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { OpenTravelPage } from '../pages/open-travel/open-travel';
+import { OpenTravelsPage } from '../pages/open-travels/open-travels';
+import { ClosedTravelsPage } from '../pages/closed-travels/closed-travels';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,13 +19,15 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public fcm: FCM) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Início', component: HomePage },
+      { title: 'Abrir Viagem', component: OpenTravelPage },
+      { title: 'Viagens Abertas', component: OpenTravelsPage },
+      { title: 'Viagens Fechadas', component: ClosedTravelsPage }
     ];
 
   }
@@ -33,12 +38,32 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      this.fcmConfig();
     });
   }
 
   openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  fcmConfig() {
+    if (this.platform.is('android')) {
+      this.fcm.getToken().then(token => {
+        this.fcm.subscribeToTopic("viagens");
+      })
+
+      this.fcm.onNotification().subscribe(data=>{
+        if(data.wasTapped){
+          console.log("Received in background");
+        } else {
+          console.log("Received in foreground");
+        };
+      })
+
+      this.fcm.onTokenRefresh().subscribe(token=>{
+        console.log(token);
+      })
+    } 
   }
 }

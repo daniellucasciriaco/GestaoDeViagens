@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Passageiro</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <b class="person-name">{{pessoa.Nome}}</b>
+      <h2 *ngIf="pessoa.Documento != ''"><b>Documento:</b> {{ pessoa.Documento }}</h2>
+      <h2 *ngIf="pessoa.Telefone != ''"><b>Telefone:</b> {{ pessoa.Telefone }}</h2>
+      <h2><b>Valor Combinado:</b> {{pessoa.ValorCombinado}}</h2>
+      <h2><b>Embarque:</b> {{pessoa.Embarque}}</h2>
+      <h2><b>Desembarque:</b> {{pessoa.Desembarque}}</h2>
+      <h2 *ngIf="pessoa.Observacao != ''"><b>Observação:</b> {{pessoa.Observacao}}</h2>
+      <p>
+        <ion-badge *ngIf="!pessoa.Pago" color="primary" item-end>Não Pagou</ion-badge>
+        <ion-badge *ngIf="pessoa.Pago" color="secondary" item-end>Pagou</ion-badge>
+        <ion-badge *ngIf="pessoa.Chegou" color="chegou" item-end>Chegou</ion-badge>
+      </p>
+    </ion-item>  
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <button ion-button round block icon-left color="primary" (click)="changePresenceStatus()">
+          <ion-icon name="man"></ion-icon>
+          {{ getPresenceInfo() }}
+        </button>
+        <button ion-button round block icon-left color="primary" (click)="changePaymentStatus()">
+          <ion-icon name="cash"></ion-icon>
+          {{ getInfo() }}
+        </button>
+        <button ion-button round block icon-left color="primary"(click)="deletePassenger()">
+          <ion-icon name="basketball"></ion-icon>
+          Furou
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

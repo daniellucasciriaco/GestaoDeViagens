@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Abrir Viagem</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      <ion-label>Origem</ion-label>
+      <ion-select [(ngModel)]="origem">
+        <ion-option value="Belo Horizonte">Belo Horizonte</ion-option>
+        <ion-option value="Viçosa">Viçosa</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Destino</ion-label>
+      <ion-select [(ngModel)]="destino">
+        <ion-option value="Belo Horizonte">Belo Horizonte</ion-option>
+        <ion-option value="Viçosa">Viçosa</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Data</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="data"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Horário de Saída</ion-label>
+      <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="horario"></ion-datetime>
+    </ion-item>
+  
+  </ion-list>
+
+  <button ion-button round block color="primary" (click)="openTravel()">
+    Abrir Viagem
+  </button>
+</ion-content>

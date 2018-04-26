@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Adicionar Passageiro</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Nome Completo" [(ngModel)]="nome"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Documento" [(ngModel)]="documento"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="tel" placeholder="Telefone" [(ngModel)]="telefone"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Embarque</ion-label>
+      <ion-select [(ngModel)]="embarque">
+        <ion-option value="Belo Horizonte">Belo Horizonte</ion-option>
+        <ion-option value="Viçosa">Viçosa</ion-option>
+        <ion-option value="Ponte Nova">Ponte Nova</ion-option>
+        <ion-option value="Porto Firme">Porto Firme</ion-option>
+        <ion-option value="Mariana">Mariana</ion-option>
+        <ion-option value="Piranga">Piranga</ion-option>
+        <ion-option value="Ouro Preto">Ouro Preto</ion-option>
+        <ion-option value="Itaverava">Itaverava</ion-option>
+        <ion-option value="Lafaiete">Lafaiete</ion-option>
+        <ion-option value="Itabirito">Itabirito</ion-option>
+        <ion-option value="Congonhas">Congonhas</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Desembarque</ion-label>
+      <ion-select [(ngModel)]="desembarque">
+        <ion-option value="Belo Horizonte">Belo Horizonte</ion-option>
+        <ion-option value="Viçosa">Viçosa</ion-option>
+        <ion-option value="Ponte Nova">Ponte Nova</ion-option>
+        <ion-option value="Porto Firme">Porto Firme</ion-option>
+        <ion-option value="Mariana">Mariana</ion-option>
+        <ion-option value="Piranga">Piranga</ion-option>
+        <ion-option value="Ouro Preto">Ouro Preto</ion-option>
+        <ion-option value="Itaverava">Itaverava</ion-option>
+        <ion-option value="Lafaiete">Lafaiete</ion-option>
+        <ion-option value="Itabirito">Itabirito</ion-option>
+        <ion-option value="Congonhas">Congonhas</ion-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Valor Combinado</ion-label>
+      <ion-select [(ngModel)]="valorcombinado">
+        <ion-option value="R$ 20,00">R$ 20</ion-option>
+        <ion-option value="R$ 25,00">R$ 25</ion-option>
+        <ion-option value="R$ 30,00">R$ 30</ion-option>
+        <ion-option value="R$ 35,00">R$ 35</ion-option>
+        <ion-option value="R$ 40,00">R$ 40</ion-option>
+        <ion-option value="R$ 45,00">R$ 45</ion-option>
+        <ion-option value="R$ 50,00">R$ 50</ion-option>
+        <ion-option value="R$ 55,00">R$ 55</ion-option>
+        <ion-option value="R$ 60,00">R$ 60</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Observação" [(ngModel)]="observacao"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Pagou?</ion-label>
+      <ion-checkbox class="margin-checkbox" color="primary" checked="false" [(ngModel)]="pagou"></ion-checkbox>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button round block color="primary" (click)="addPessoa()">
+    Adicionar
+  </button>
+</ion-content>

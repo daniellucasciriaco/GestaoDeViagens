@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Viagem</ion-title>
+
+    <ion-buttons end>
+      <button *ngIf="navParams.data.Status == 'Aberta'" ion-button icon-only (click)="addPessoa()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-title>
+    <h6>
+      <b>{{this.navParams.data.Title}}</b>
+    </h6>
+    <h6>
+      <b>{{pessoas?.length}} passageiro(s)</b>
+    </h6>
+  </ion-title>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let pessoa of pessoas" (click)="goToPassengerDetail(pessoa)">
+      <b class="person-name">{{pessoa.Nome}}</b>
+      <h2><b>Valor Combinado:</b> {{pessoa.ValorCombinado}}</h2>
+      <h2><b>Embarque:</b> {{pessoa.Embarque}}</h2>
+      <h2><b>Desembarque:</b> {{pessoa.Desembarque}}</h2>
+      <h2 *ngIf="pessoa.Observacao != ''"><b>Observação:</b> {{pessoa.Observacao}}</h2>
+      <p>
+        <ion-badge *ngIf="!pessoa.Pago" color="primary" item-end>Não Pagou</ion-badge>
+        <ion-badge *ngIf="pessoa.Pago" color="secondary" item-end>Pagou</ion-badge>
+        <ion-badge *ngIf="pessoa.Chegou" color="chegou" item-end>Chegou</ion-badge>
+      </p>
+    </ion-item>  
+  </ion-list>
+</ion-content>
+
+<ion-footer *ngIf="navParams.data.Status == 'Aberta'">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <button ion-button round block color="primary" (click)="closeTravel()">
+          Fechar Viagem
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
